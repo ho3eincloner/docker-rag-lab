@@ -1,4 +1,11 @@
-print("Hello from my Python container!")
+﻿from fastapi import FastAPI
 
-name = "RAG Engineer"
-print(f"Welcome, {name}!")
+app = FastAPI(title="RAG Lab API")
+
+@app.get("/")
+def home():
+    return {"message": "Hello from RAG Lab API"}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
